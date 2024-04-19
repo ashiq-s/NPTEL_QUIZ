@@ -35,7 +35,7 @@ const quizzes = [
             },
             {
                 number: "5",
-                question: '\"pant community, predominantly comprised of trees and other woody vegetation, usually with a closed canopy\" is',
+                question: '\"plant community, predominantly comprised of trees and other woody vegetation, usually with a closed canopy\" is',
                 options: ['silviculture definition of forests', 'FAO definition of forests', 'legal definition of forests', 'ecological definition of forests'],
                 correctAnswer: 'ecological definition of forests',
             },
@@ -208,7 +208,7 @@ const quizzes = [
             {
                 number: '1',
                 question: 'measurement of height based on similar triangles comes under',
-                options: ['similar measurement', 'dissimilar measurement', 'direct measurementindirect measurement', ''],
+                options: ['similar measurement', 'dissimilar measurement', 'direct measurement', 'indirect measurement'],
                 correctAnswer: 'indirect measurement',
             },
             {
@@ -225,7 +225,7 @@ const quizzes = [
             },
             {
                 number: '4',
-                question: '3 trees are located is a sample plot of 15m X 15m. their dbh are as under:\ndbh= 25cm, 30cm, 35cm\nfind the stand basal area in sq m per Ha',
+                question: '3 trees are located is a sample plot of 15m X 15m. their dbh are as under: dbh= 25cm, 30cm, 35cm. Find the stand basal area in sq m per Ha',
                 options: ['9.6', '14.6', '21.6', '27.6'],
                 correctAnswer: '9.6',
             },
@@ -800,11 +800,27 @@ function QuizApp() {
 
     const startQuiz = (quizIndex) => {
         setCurrentQuiz(quizzes[quizIndex]);
-        setRemainingQuestions([...quizzes[quizIndex].questions]);
+        var questionList = quizzes[quizIndex].questions;
+        questionList = shuffleArray(questionList);
+        for (var i = 0; i < 10; ++i) {
+            var q = questionList.at(i);
+            q.options = shuffleArray(q.options);
+            q.number = i + 1;
+        }
+        setRemainingQuestions(questionList);
         setCurrentQuestion(0);
         setAnswers([]);
         setSelectedOption(null);
         setCorrectOption(null);
+    };
+
+    const shuffleArray = (array) => {
+        const shuffledArray = [...array];
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+        return shuffledArray;
     };
 
     const handleAnswer = (selectedOption) => {
