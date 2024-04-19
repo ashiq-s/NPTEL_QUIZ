@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+* {
+    color: white;
+    padding: 0;
+    margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    background: linear-gradient(to bottom right, #000000, #363333);
+    min-height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1, h2, p {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1, h2 {
+    font-weight: 800;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+    font-size: 55px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+    color: red;
+    font-size: 50px;
+}
+
+ul {
+    display: grid;
+    list-style-type: none;
+    align-items: center;
+}
+
+li {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background: linear-gradient(to bottom right, #000000, #363333);
+    width: 600px;
+    margin: 5px;
+    height: fit-content;
+    min-height: 40px;
+    font-size: large;
+    padding: 10px;
+}
+
+.correct {
+    border: 3px solid green;
+}
+
+.incorrect {
+    border: 3px solid red;
+}
+
+.questionNo {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.question {
+    font-size: 25px;
 }
